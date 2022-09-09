@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     name: homebrew-releaser
     steps:
-      - name: Release my project to my Homebrew tap
+      - name: Release {{cookiecutter.project_name}} to my Homebrew tap
         uses: Justintime50/homebrew-releaser@v1
         with:
           homebrew_owner: {{cookiecutter.repo_owner}}
@@ -21,5 +21,7 @@ jobs:
           {% endraw %}
           commit_owner: github-actions[bot]
           commit_email: github-actions[bot]@users.noreply.github.com
+
+          update_readme_table: true
 
           install: 'bin.install "src/{{cookiecutter.project_name}}.sh" => "{{cookiecutter.project_name}}"'
